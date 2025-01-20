@@ -118,7 +118,7 @@ variable "template_name"{
   type = string
 }
 
-variable "template_version"{
+variable "module_version"{
   description = "Template name. Should be defined according to deployment type(e.g. ha, vmss)"
   type = string
 }

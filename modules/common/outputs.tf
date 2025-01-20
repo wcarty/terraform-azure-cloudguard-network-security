@@ -30,8 +30,8 @@ output "template_name"{
   value = var.template_name
 }
 
-output "template_version" {
-  value = var.template_version
+output "module_version" {
+  value = var.module_version
 }
 
 output "bootstrap_script"{
