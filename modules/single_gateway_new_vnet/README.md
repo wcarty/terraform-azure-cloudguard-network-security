@@ -25,7 +25,7 @@ provider "azurerm" {
 module "example_module" {
 
   source  = "CheckPointSW/cloudguard-network-security/azure//modules/single_gateway_new_vnet"
-  version = "1.0.3"
+  version = "1.0.4"
 
   source_image_vhd_uri            = "noCustomUri"
   resource_group_name             = "checkpoint-single-gw-terraform"
@@ -59,7 +59,7 @@ module "example_module" {
 ```
   
 ## Conditional creation
--  To enable CloudGuard metrics in order to send statuses and statistics collected from the gateway instance to the Azure Monitor service:
+- To enable CloudGuard metrics in order to send statuses and statistics collected from the gateway instance to the Azure Monitor service:
   ```
   enable_custom_metrics = true
   ```
@@ -83,8 +83,8 @@ module "example_module" {
 | **vm_size**                           | Specifies the size of Virtual Machine                                                                                                                            | string         | Various valid sizes (e.g., "Standard_DS2_v2", "Standard_D4s_v3", etc.)                                                                                                                  |
 | **disk_size**                         | Storage data disk size (GB)                                                                                                                                      | string         | A number in the range 100 - 3995 (GB)                                                                                                                                                                                          |
 | **vm_os_sku**                         | A SKU of the image to be deployed                                                                                                                                | string         | "sg-byol" - BYOL license;<br />"sg-ngtp" - NGTP PAYG license;<br />"sg-ngtx" - NGTX PAYG license                                                                                        |
-| **vm_os_offer**                       | The name of the image offer to be deployed                                                                                                                       | string         | "check-point-cg-r81";<br />"check-point-cg-r8110";<br />"check-point-cg-r8120";<br />"check-point-cg-r82";                                                                              |
-| **os_version**                        | GAIA OS version                                                                                                                                                  | string         | "R81";<br />"R8110";<br />"R8120";<br />"R82";                                                                                                                                           |
+| **vm_os_offer**                       | The name of the image offer to be deployed                                                                                                                       | string         | "check-point-cg-r8110";<br />"check-point-cg-r8120";<br />"check-point-cg-r82";                                                                              |
+| **os_version**                        | GAIA OS version                                                                                                                                                  | string         | "R8110";<br />"R8120";<br />"R82";                                                                                                                                           |
 | **bootstrap_script**                  | An optional script to run on the initial boot                                                                                                                    | string         | Bootstrap script example:<br />"touch /home/admin/bootstrap.txt; echo 'hello_world' > /home/admin/bootstrap.txt"<br />**Default:** ""                                                                          |
 | **allow_upload_download**             | Automatically download Blade Contracts and other important data. Improve product experience by sending data to Check Point                                       | boolean        | true;<br />false;                                                                                                                                                                        |
 | **authentication_type**               | Specifies whether a password authentication or SSH Public Key authentication should be used                                                                       | string         | "Password";<br />"SSH Public Key";                                                                                                                                                      |

@@ -26,8 +26,8 @@ output "vm_instance_identity" {
   value = var.vm_instance_identity_type
 }
 
-output "template_name"{
-  value = var.template_name
+output "module_name"{
+  value = var.module_name
 }
 
 output "module_version" {

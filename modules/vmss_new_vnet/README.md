@@ -29,7 +29,7 @@ provider "azurerm" {
 module "example_module" {
 
     source  = "CheckPointSW/cloudguard-network-security/azure//modules/vmss_new_vnet"
-    version = "1.0.3"
+    version = "1.0.4"
 
     subscription_id                 = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
     source_image_vhd_uri            = "noCustomUri"
@@ -73,10 +73,10 @@ module "example_module" {
 ```
 
 ## Conditional creation
-To create role assignment and enable CloudGuard metrics in order to send statuses and statistics collected from VMSS instances to the Azure Monitor service:
-```
-enable_custom_metrics = true
-```
+- To create role assignment and enable CloudGuard metrics in order to send statuses and statistics collected from VMSS instances to the Azure Monitor service:
+  ```
+  enable_custom_metrics = true
+  ```
 
 ## Deploy Without Public IP
 
@@ -99,7 +99,7 @@ enable_custom_metrics = true
 | **vm_size**                           | Specifies the size of Virtual Machine                                                                                                                                   | string         | A list of valid VM sizes, e.g., "Standard_DS2_v2", "Standard_D4s_v3", "Standard_D64s_v3", etc.<br />                                                                                          |
 | **disk_size**                         | Storage data disk size (GB) must be 100 for versions R81.20 and below                                                                                                   | string         | A number in the range 100 - 3995 (GB)<br />**Default:** 100                                                                                                                                                                                          |
 | **vm_os_sku**                         | A SKU of the image to be deployed                                                                                                                                      | string         | "sg-byol" - BYOL license;<br />"sg-ngtp" - NGTP PAYG license;<br />"sg-ngtx" - NGTX PAYG license;<br />                                                                                        |
-| **vm_os_offer**                       | The name of the image offer to be deployed                                                                                                                              | string         | "check-point-cg-r81";<br />"check-point-cg-r8110";<br />"check-point-cg-r8120";<br />"check-point-cg-r82";<br />                                                                              |
+| **vm_os_offer**                       | The name of the image offer to be deployed                                                                                                                              | string         | "check-point-cg-r8110";<br />"check-point-cg-r8120";<br />"check-point-cg-r82";<br />                                                                              |
 | **os_version**                        | GAIA OS version                                                                                                                                                        | string         | "R8110";<br />"R8120";<br />"R82";<br />                                                                                                                                                       |
 | **bootstrap_script**                  | An optional script to run on the initial boot                                                                                                                          | string         | Bootstrap script example:<br />"touch /home/admin/bootstrap.txt; echo 'hello_world' > /home/admin/bootstrap.txt"<br />                                                                          |
 | **allow_upload_download**             | Automatically download Blade Contracts and other important data. Improve product experience by sending data to Check Point                                              | boolean        | true;<br />false;<br />                                                                                                                                                                       |

@@ -113,7 +113,7 @@ variable "vm_instance_identity_type" {
   default = "SystemAssigned"
 }
 
-variable "template_name"{
+variable "module_name"{
   description = "Template name. Should be defined according to deployment type(ha, vmss)"
   type = string
 }
@@ -216,13 +216,12 @@ variable "publisher" {
 
 //************** Storage image reference and plan variables ****************//
 variable "vm_os_offer" {
-  description = "The name of the image offer to be deployed.Choose from: check-point-cg-r81, check-point-cg-r8110, check-point-cg-r8120, check-point-cg-r82"
+  description = "The name of the image offer to be deployed.Choose from: check-point-cg-r8110, check-point-cg-r8120, check-point-cg-r82"
   type = string
 }
 
 locals { // locals for 'vm_os_offer' allowed values
   vm_os_offer_allowed_values = [
-    "check-point-cg-r81",
     "check-point-cg-r8110",
     "check-point-cg-r8120",
     "check-point-cg-r82"
