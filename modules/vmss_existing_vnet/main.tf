@@ -53,7 +53,7 @@ resource "random_id" "random_id" {
 }
 
 resource "azurerm_public_ip" "public-ip-lb" {
-  count = var.deployment_mode != "Internal" ? 1 : 0
+  count = var.deployment_mode != "Internal" ? var.public_ip_count : 0
   name = "${var.vmss_name}-app-1"
   location = module.common.resource_group_location
   resource_group_name = module.common.resource_group_name
@@ -63,7 +63,7 @@ resource "azurerm_public_ip" "public-ip-lb" {
 }
 
 resource "azurerm_lb" "frontend-lb" {
-  count = var.deployment_mode != "Internal" ? 1 : 0
+  count = var.deployment_mode != "Internal" ? length(var.public_ip_count) : 0
   depends_on = [azurerm_public_ip.public-ip-lb]
   name = "frontend-lb"
   location = module.common.resource_group_location

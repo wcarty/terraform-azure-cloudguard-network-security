@@ -397,3 +397,8 @@ variable "security_rules" {
       }
     ]
 }
+variable "public_ip_count" {
+  description = "The number of public IP addresses to be created for the load balancer. The default value is 1."
+  type = number
+  default = 1
+}
